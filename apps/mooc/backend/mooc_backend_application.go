@@ -9,13 +9,11 @@ import (
 )
 
 type MoocBackendApplication struct {
-	app *fiber.App
+	*fiber.App
 }
 
 func NewMoocBackendApplication() *MoocBackendApplication {
-	newApp := &MoocBackendApplication{
-		app: fiber.New(),
-	}
+	newApp := &MoocBackendApplication{fiber.New()}
 
 	newApp.setupRoutes()
 
@@ -23,11 +21,11 @@ func NewMoocBackendApplication() *MoocBackendApplication {
 }
 
 func (m *MoocBackendApplication) setupRoutes() {
-	m.app.Get("/health-check", healthcheck.GetControllerHandler)
+	m.Get("/health-check", healthcheck.GetControllerHandler)
 }
 
 func (m *MoocBackendApplication) StartServer() {
-	_ = m.app.Listen(":3000")
+	_ = m.Listen(":3000")
 }
 
 func (m *MoocBackendApplication) Commands() map[string]cli.ConsoleCommand {
@@ -37,8 +35,4 @@ func (m *MoocBackendApplication) Commands() map[string]cli.ConsoleCommand {
 	commands["another_fake"] = command.NewAnotherFakeCommand()
 
 	return commands
-}
-
-func (m *MoocBackendApplication) App() *fiber.App {
-	return m.app
 }
