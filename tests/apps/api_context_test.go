@@ -20,6 +20,7 @@ type moocBackendFeature struct {
 func (a *moocBackendFeature) iSendARequestTo(method, endpoint string) (err error) {
 	req := httptest.NewRequest(method, endpoint, nil)
 	app := moocBackend.NewMoocBackendApplication()
+	app.ConfigureServer()
 
 	resp, _ := app.Test(req)
 

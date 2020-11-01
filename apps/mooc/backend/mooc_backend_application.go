@@ -13,15 +13,13 @@ type MoocBackendApplication struct {
 }
 
 func NewMoocBackendApplication() *MoocBackendApplication {
-	newApp := &MoocBackendApplication{fiber.New()}
-
-	newApp.setupRoutes()
-
-	return newApp
+	return &MoocBackendApplication{}
 }
 
-func (m *MoocBackendApplication) setupRoutes() {
-	m.Get("/health-check", healthcheck.GetControllerHandler)
+func (m *MoocBackendApplication) ConfigureServer() {
+	m.App = fiber.New()
+
+	m.setupRoutes()
 }
 
 func (m *MoocBackendApplication) StartServer() {
@@ -35,4 +33,8 @@ func (m *MoocBackendApplication) Commands() map[string]cli.ConsoleCommand {
 	commands["another_fake"] = command.NewAnotherFakeCommand()
 
 	return commands
+}
+
+func (m *MoocBackendApplication) setupRoutes() {
+	m.Get("/health-check", healthcheck.GetControllerHandler)
 }
