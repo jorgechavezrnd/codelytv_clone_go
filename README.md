@@ -25,10 +25,21 @@ go run apps/starter.go mooc_frontend server
 ### Command for run acceptance tests of mooc backend application
 - Windows (Powershell)
 ```
-cd tests/apps; godog mooc/backend; cd ../..
+cd tests/apps/mooc/backend; godog .; cd ../../../..
 ```
 
 - Mac / Ubuntu
 ```
-cd tests/apps && godog mooc/backend && cd ../..
+cd tests/apps/mooc/backend && godog . && cd ../../../..
+```
+
+### Command for run acceptance tests of mooc frontend application
+- Windows (Powershell)
+```
+cd tests/apps/mooc/frontend; godog .; cd ../../../..
+```
+
+- Mac / Ubuntu
+```
+cd tests/apps/mooc/frontend && godog . && cd ../../../..
 ```
