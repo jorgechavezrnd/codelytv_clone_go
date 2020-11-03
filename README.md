@@ -28,7 +28,7 @@ go run apps/starter.go mooc_frontend server
 cd tests/apps/mooc/backend; godog .; cd ../../../..
 ```
 
-- Mac / Ubuntu
+- Mac / Ubuntu / Windows(CMD)
 ```
 cd tests/apps/mooc/backend && godog . && cd ../../../..
 ```
@@ -39,7 +39,7 @@ cd tests/apps/mooc/backend && godog . && cd ../../../..
 cd tests/apps/mooc/frontend; godog .; cd ../../../..
 ```
 
-- Mac / Ubuntu
+- Mac / Ubuntu / Windows(CMD)
 ```
 cd tests/apps/mooc/frontend && godog . && cd ../../../..
 ```
